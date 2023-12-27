@@ -1,0 +1,35 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+    <div class="sm:w-3/5 w-4/5 mx-auto">
+        <h1 class="pt-20 sm:text-5xl md:text-7xl text-4xl font-bold text-center">
+            <!-- load title from array movie -->
+            {{ lista.title }}
+        </h1>
+
+        <div class="py-10 text-center">
+            <div class="inline-block sm:pt-1">
+                <h2 class="font-bold">
+                    {{ autor }}
+                </h2>
+            </div>
+        </div>
+
+         <!-- load path from array movie -->
+
+        <p class="text-xl py-6">
+             <!-- load desccription from array movie -->
+            {{ lista.content }}
+        </p>
+
+        {% if app.user %}
+            <!-- load id from move -->
+            <a 
+                href="/lista/delete/{{ lista.id }}"
+                class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
+                Delete Post
+            </a>
+
+        {% endif %}
+    </div>
+{% endblock %}
